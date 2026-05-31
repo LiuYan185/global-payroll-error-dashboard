@@ -368,12 +368,13 @@
   <div class="summary-card" style="margin-bottom:10px;">
     <div class="summary-title">决策总结</div>
     <ul class="summary-list">
-      <li>整体累计差错占比 <span class="hl-green">0.05%</span>，累计准确率 <span class="hl-green">99.95%</span>，整体达标。</li>
-      <li class="warn"><span class="hl-red">LBU</span> 累计差错占比 0.12%（准确率 99.88%），显著超过 0.05% 目标且准确率低于 99.95%，为重点改善对象。</li>
-      <li class="warn"><span class="hl-red">FBU</span> 累计差错占比 0.06%（准确率 99.94%），略超过 0.05% 目标线，准确率低于 99.95%，需持续关注。</li>
-      <li>HRBP 角色产生差错 <span class="hl-red">22 人次</span>（占比 57.9%），为差错最主要来源；内部算薪系统产生 9 人次（23.7%）次之。建议聚焦 HRBP 核算流程优化。</li>
-      <li>2月为差错高峰（13人次），3月回落至11人次，4月进一步降至6人次，差错呈<span class="hl-green">逐月下降趋势</span>，改善方向积极。</li>
-      <li class="good">ABU、GUS、GEU、HQU 四个BU 1-4月零差错或接近零差错，表现优异。</li>
+      <li>整体累计差错占比 <span class="hl-red">0.052%</span>，累计准确率 99.948%，略超 0.05% 目标线，整体基本达标但仍需持续改善。</li>
+      <li class="warn"><span class="hl-red">LBU</span> 累计差错占比 0.122%（准确率 99.878%），显著超过 0.05% 目标且准确率低于 99.95%，为重点改善对象。</li>
+      <li class="warn"><span class="hl-red">FBU</span> 累计差错占比 0.071%（准确率 99.929%），超过 0.05% 目标线，准确率低于 99.95%，需持续关注。</li>
+      <li class="warn"><span class="hl-red">GEU</span> 累计差错占比 0.043%（HSSC 3月产生2次），接近目标线，需重视。</li>
+      <li>HRBP 角色产生差错 <span class="hl-red">24 人次</span>（占比 57.1%），为差错最主要来源；HSSC 与 内部算薪系统各产生 9 人次（各 21.4%）。建议聚焦 HRBP 核算流程优化。</li>
+      <li>2月为差错高峰（13人次），3月升至14人次，4月回落至7人次，差错整体呈<span class="hl-green">波动后下降趋势</span>，改善方向积极。</li>
+      <li class="good">ABU、HQU 两个BU 1-4月零差错，表现优异；PBU、GUS 差错极少（各1次），整体表现良好。</li>
     </ul>
     <div style="margin-top:8px;padding-top:8px;border-top:1px dashed #cbd5e1;font-size:12px;color:#64748b;font-weight:500;">
       备注：全球（正式+外包）薪酬核算差错率要求为国内≤0.05%、海外≤0.1%，采用0.05%的高标准有利于统一管控口径、推动各BU对齐最优水平。
@@ -384,23 +385,23 @@
   <div class="kpi-row">
     <div class="kpi-card">
       <div class="label">累计算薪人次（1-4月）</div>
-      <div class="value">80,340<span class="unit">人次</span></div>
+      <div class="value">80,342<span class="unit">人次</span></div>
       <div class="trend">覆盖 7 个BU</div>
     </div>
     <div class="kpi-card accent-red">
       <div class="label">累计差错人次（1-4月）</div>
-      <div class="value red">38<span class="unit">人次</span></div>
-      <div class="trend down">4月差错 6 人次，环比下降 45%</div>
+      <div class="value red">42<span class="unit">人次</span></div>
+      <div class="trend down">4月差错 7 人次，较3月（14次）下降 50%</div>
     </div>
     <div class="kpi-card accent-amber">
       <div class="label">累计差错占比</div>
-      <div class="value amber">0.05<span class="unit">%</span></div>
-      <div class="trend">达到目标 0.05% 基准线</div>
+      <div class="value amber">0.052<span class="unit">%</span></div>
+      <div class="trend">略超 0.05% 目标基准线，需持续改善</div>
     </div>
     <div class="kpi-card accent-green">
       <div class="label">累计准确率</div>
-      <div class="value green">99.95<span class="unit">%</span></div>
-      <div class="trend">FBU / LBU 准确率低于 99.95%</div>
+      <div class="value green">99.948<span class="unit">%</span></div>
+      <div class="trend">FBU / LBU / PBU 准确率低于 99.95%</div>
     </div>
   </div>
 
@@ -532,61 +533,61 @@ const ALL_BUS = ['集团',...BU_LIST];
 const ROLES = ['HSSC','HRBP','浮动奖金核算者','内部算薪系统'];
 
 const rawData = [
-  // FBU
-  { bu:'FBU', role:'HSSC', errors:[0,4,1,0], counts:[8209,7271,8402,8711], rates:[0,0.055,0.012,0], totalErrors:5, totalCount:32593, totalRate:0.02, accuracy:99.98 },
-  { bu:'FBU', role:'HRBP', errors:[0,0,8,0], counts:[null,null,null,null], rates:[0,0,0.095,0], totalErrors:8, totalCount:null, totalRate:0.02, accuracy:99.98 },
+  // FBU — 来源：差错明细文件，共23次差错
+  { bu:'FBU', role:'HSSC', errors:[0,4,1,0], counts:[8210,7274,8405,8713], rates:[0,0.055,0.012,0], totalErrors:5, totalCount:32602, totalRate:0.015, accuracy:99.985 },
+  { bu:'FBU', role:'HRBP', errors:[0,0,9,1], counts:[null,null,null,null], rates:[0,0,0.107,0.011], totalErrors:10, totalCount:null, totalRate:0.031, accuracy:99.969 },
   { bu:'FBU', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'FBU', role:'内部算薪系统', errors:[0,6,2,0], counts:[null,null,null,null], rates:[0,0.083,0.024,0], totalErrors:8, totalCount:null, totalRate:0.02, accuracy:99.98 },
-  { bu:'FBU', role:'小计', errors:[0,10,11,0], counts:[null,null,null,null], rates:[0,0.138,0.131,0], totalErrors:21, totalCount:32593, totalRate:0.06, accuracy:99.94 },
+  { bu:'FBU', role:'内部算薪系统', errors:[0,6,2,0], counts:[null,null,null,null], rates:[0,0.083,0.024,0], totalErrors:8, totalCount:null, totalRate:0.025, accuracy:99.975 },
+  { bu:'FBU', role:'小计', errors:[0,10,12,1], counts:[8210,7274,8405,8713], rates:[0,0.138,0.143,0.011], totalErrors:23, totalCount:32602, totalRate:0.071, accuracy:99.929 },
 
-  // LBU
-  { bu:'LBU', role:'HSSC', errors:[0,0,0,2], counts:[3151,3058,3065,3047], rates:[0,0,0,0.066], totalErrors:2, totalCount:12321, totalRate:0.02, accuracy:99.98 },
-  { bu:'LBU', role:'HRBP', errors:[6,3,0,3], counts:[null,null,null,null], rates:[0.19,0.098,0,0.098], totalErrors:12, totalCount:null, totalRate:0.1, accuracy:99.9 },
+  // LBU — 共15次差错
+  { bu:'LBU', role:'HSSC', errors:[0,0,0,2], counts:[3153,3055,3067,3045], rates:[0,0,0,0.066], totalErrors:2, totalCount:12320, totalRate:0.016, accuracy:99.984 },
+  { bu:'LBU', role:'HRBP', errors:[6,3,0,3], counts:[null,null,null,null], rates:[0.190,0.098,0,0.099], totalErrors:12, totalCount:null, totalRate:0.097, accuracy:99.903 },
   { bu:'LBU', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'LBU', role:'内部算薪系统', errors:[1,0,0,0], counts:[null,null,null,null], rates:[0.032,0,0,0], totalErrors:1, totalCount:null, totalRate:0.01, accuracy:99.99 },
-  { bu:'LBU', role:'小计', errors:[7,3,0,5], counts:[null,null,null,null], rates:[0.222,0.098,0,0.164], totalErrors:15, totalCount:12321, totalRate:0.12, accuracy:99.88 },
+  { bu:'LBU', role:'内部算薪系统', errors:[1,0,0,0], counts:[null,null,null,null], rates:[0.032,0,0,0], totalErrors:1, totalCount:null, totalRate:0.008, accuracy:99.992 },
+  { bu:'LBU', role:'小计', errors:[7,3,0,5], counts:[3153,3055,3067,3045], rates:[0.222,0.098,0,0.164], totalErrors:15, totalCount:12320, totalRate:0.122, accuracy:99.878 },
 
-  // PBU
-  { bu:'PBU', role:'HSSC', errors:[0,0,0,0], counts:[374,381,438,579], rates:[0,0,0,0], totalErrors:0, totalCount:1772, totalRate:0, accuracy:100 },
-  { bu:'PBU', role:'HRBP', errors:[0,0,0,1], counts:[null,null,null,null], rates:[0,0,0,0.17], totalErrors:1, totalCount:null, totalRate:0.06, accuracy:99.94 },
+  // PBU — 共1次差错
+  { bu:'PBU', role:'HSSC', errors:[0,0,0,0], counts:[376,383,436,581], rates:[0,0,0,0], totalErrors:0, totalCount:1776, totalRate:0, accuracy:100 },
+  { bu:'PBU', role:'HRBP', errors:[0,0,0,1], counts:[null,null,null,null], rates:[0,0,0,0.172], totalErrors:1, totalCount:null, totalRate:0.056, accuracy:99.944 },
   { bu:'PBU', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'PBU', role:'内部算薪系统', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'PBU', role:'小计', errors:[0,0,0,1], counts:[null,null,null,null], rates:[0,0,0,0.17], totalErrors:1, totalCount:1772, totalRate:0.06, accuracy:99.94 },
+  { bu:'PBU', role:'小计', errors:[0,0,0,1], counts:[376,383,436,581], rates:[0,0,0,0.172], totalErrors:1, totalCount:1776, totalRate:0.056, accuracy:99.944 },
 
-  // ABU
-  { bu:'ABU', role:'HSSC', errors:[0,0,0,0], counts:[254,252,285,316], rates:[0,0,0,0], totalErrors:0, totalCount:1107, totalRate:0, accuracy:100 },
+  // ABU — 零差错
+  { bu:'ABU', role:'HSSC', errors:[0,0,0,0], counts:[255,253,286,314], rates:[0,0,0,0], totalErrors:0, totalCount:1108, totalRate:0, accuracy:100 },
   { bu:'ABU', role:'HRBP', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'ABU', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'ABU', role:'内部算薪系统', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'ABU', role:'小计', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:1107, totalRate:0, accuracy:100 },
+  { bu:'ABU', role:'小计', errors:[0,0,0,0], counts:[255,253,286,314], rates:[0,0,0,0], totalErrors:0, totalCount:1108, totalRate:0, accuracy:100 },
 
-  // GUS
-  { bu:'GUS', role:'HSSC', errors:[0,0,0,0], counts:[5563,5734,6308,6409], rates:[0,0,0,0], totalErrors:0, totalCount:24014, totalRate:0, accuracy:100 },
-  { bu:'GUS', role:'HRBP', errors:[1,0,0,0], counts:[null,null,null,null], rates:[0.018,0,0,0], totalErrors:1, totalCount:null, totalRate:0, accuracy:100 },
+  // GUS — 共1次差错
+  { bu:'GUS', role:'HSSC', errors:[0,0,0,0], counts:[5561,5732,6310,6407], rates:[0,0,0,0], totalErrors:0, totalCount:24010, totalRate:0, accuracy:100 },
+  { bu:'GUS', role:'HRBP', errors:[1,0,0,0], counts:[null,null,null,null], rates:[0.018,0,0,0], totalErrors:1, totalCount:null, totalRate:0.004, accuracy:99.996 },
   { bu:'GUS', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'GUS', role:'内部算薪系统', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'GUS', role:'小计', errors:[1,0,0,0], counts:[null,null,null,null], rates:[0.018,0,0,0], totalErrors:1, totalCount:24014, totalRate:0.004, accuracy:100 },
+  { bu:'GUS', role:'小计', errors:[1,0,0,0], counts:[5561,5732,6310,6407], rates:[0.018,0,0,0], totalErrors:1, totalCount:24010, totalRate:0.004, accuracy:99.996 },
 
-  // GEU
-  { bu:'GEU', role:'HSSC', errors:[0,0,0,0], counts:[1395,1006,1102,1101], rates:[0,0,0,0], totalErrors:0, totalCount:4604, totalRate:0, accuracy:100 },
+  // GEU — 共2次差错（HSSC 3月2次）
+  { bu:'GEU', role:'HSSC', errors:[0,0,2,0], counts:[1397,1004,1100,1099], rates:[0,0,0.182,0], totalErrors:2, totalCount:4600, totalRate:0.043, accuracy:99.957 },
   { bu:'GEU', role:'HRBP', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'GEU', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'GEU', role:'内部算薪系统', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'GEU', role:'小计', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:4604, totalRate:0, accuracy:100 },
+  { bu:'GEU', role:'小计', errors:[0,0,2,0], counts:[1397,1004,1100,1099], rates:[0,0,0.182,0], totalErrors:2, totalCount:4600, totalRate:0.043, accuracy:99.957 },
 
-  // HQU
-  { bu:'HQU', role:'HSSC', errors:[0,0,0,0], counts:[916,898,925,1190], rates:[0,0,0,0], totalErrors:0, totalCount:3929, totalRate:0, accuracy:100 },
+  // HQU — 零差错
+  { bu:'HQU', role:'HSSC', errors:[0,0,0,0], counts:[915,896,923,1192], rates:[0,0,0,0], totalErrors:0, totalCount:3926, totalRate:0, accuracy:100 },
   { bu:'HQU', role:'HRBP', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'HQU', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
   { bu:'HQU', role:'内部算薪系统', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'HQU', role:'小计', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:3929, totalRate:0, accuracy:100 },
+  { bu:'HQU', role:'小计', errors:[0,0,0,0], counts:[915,896,923,1192], rates:[0,0,0,0], totalErrors:0, totalCount:3926, totalRate:0, accuracy:100 },
 
-  // Group Total - FIXED: totalRate 0.07→0.05, accuracy 99.93→99.95
-  { bu:'集团', role:'HSSC', errors:[0,4,1,2], counts:[19862,18600,20525,21353], rates:[0,0.022,0.005,0.009], totalErrors:7, totalCount:80340, totalRate:0.01, accuracy:99.99 },
-  { bu:'集团', role:'HRBP', errors:[7,3,8,4], counts:[null,null,null,null], rates:[0.035,0.016,0.039,0.02], totalErrors:22, totalCount:null, totalRate:0.03, accuracy:99.97 },
+  // 集团汇总 — 共42次差错，算薪80342人次
+  { bu:'集团', role:'HSSC', errors:[0,4,3,2], counts:[19867,18597,20527,21351], rates:[0,0.022,0.015,0.009], totalErrors:9, totalCount:80342, totalRate:0.011, accuracy:99.989 },
+  { bu:'集团', role:'HRBP', errors:[7,3,9,5], counts:[null,null,null,null], rates:[0.035,0.016,0.044,0.023], totalErrors:24, totalCount:null, totalRate:0.030, accuracy:99.970 },
   { bu:'集团', role:'浮动奖金核算者', errors:[0,0,0,0], counts:[null,null,null,null], rates:[0,0,0,0], totalErrors:0, totalCount:null, totalRate:0, accuracy:100 },
-  { bu:'集团', role:'内部算薪系统', errors:[1,6,2,0], counts:[null,null,null,null], rates:[0.005,0.032,0.01,0], totalErrors:9, totalCount:null, totalRate:0.01, accuracy:99.99 },
-  { bu:'集团', role:'合计', errors:[8,13,11,6], counts:[null,null,null,null], rates:[0.04,0.07,0.054,0.03], totalErrors:38, totalCount:80340, totalRate:0.05, accuracy:99.95 },
+  { bu:'集团', role:'内部算薪系统', errors:[1,6,2,0], counts:[null,null,null,null], rates:[0.005,0.032,0.010,0], totalErrors:9, totalCount:null, totalRate:0.011, accuracy:99.989 },
+  { bu:'集团', role:'合计', errors:[8,13,14,7], counts:[19867,18597,20527,21351], rates:[0.040,0.070,0.068,0.033], totalErrors:42, totalCount:80342, totalRate:0.052, accuracy:99.948 },
 ];
 
 // ============= HELPERS =============
@@ -607,7 +608,7 @@ function downloadHTML() {
   const blob = new Blob(['<!DOCTYPE html>\n' + html], { type: 'text/html;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = '全球薪酬核算差错统计看板_V20.html';
+  a.download = '全球薪酬核算差错统计看板_V21.html';
   a.click();
   URL.revokeObjectURL(a.href);
 }
@@ -616,7 +617,7 @@ function exportPNG() {
   html2canvas(document.body, { scale: 2, useCORS: true, backgroundColor: '#f0f4f8', windowWidth: 1440 }).then(canvas => {
     const a = document.createElement('a');
     a.href = canvas.toDataURL('image/png');
-    a.download = '全球薪酬核算差错统计看板_V20.png';
+    a.download = '全球薪酬核算差错统计看板_V21.png';
     a.click();
   }).catch(() => {
     alert('导出失败，请稍后重试');
