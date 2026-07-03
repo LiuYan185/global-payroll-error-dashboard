@@ -117,6 +117,17 @@
     gap: 6px;
   }
   .dim-icon { font-size: 16px; }
+  .hssc-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 6px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
   .dimension-card .dim-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -453,7 +464,6 @@
     font-size: 11px;
   }
 </style>
-
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="全球薪酬核算差错统计看板"/>
 <meta property="og:description" content="全球薪酬核算差错统计看板 数据周期：2026年1-5月 累计差错59人次 准确率99.94%"/>
@@ -479,16 +489,15 @@
     <div class="summary-title">决策总结</div>
     <div class="summary-body">
 
-      <p>1-5月累计差错 <span class="hl-red">59</span> 人次，累计算薪 <span class="hl-blue">103,064</span> 人次，差错占比 <span class="hl-blue">0.06%</span>，准确率 <span class="hl-blue">99.94%</span>。</p>
-      <p class="warn">国内累计差错占比 <span class="hl-red">0.11%</span>（准确率 <span class="hl-red">99.89%</span>），<span class="hl-red">未达标</span>，目标≤0.05%，需重点改善。海外累计差错占比 <span class="hl-green">0.04%</span>（准确率 <span class="hl-green">99.96%</span>），<span class="hl-green">达标</span>，目标≤0.1%，表现良好。</p>
-      <p class="warn">5月差错 <span class="hl-red">21 人次</span>，环比4月（6人次）大幅上升 <span class="hl-red">250%</span>，为年度高峰月。</p>
-      <p class="warn">需关注的BU：国内不达标BU → <span class="hl-red">PBU</span>(0.32%)、<span class="hl-red">LBU</span>(0.21%)、<span class="hl-red">ABU</span>(0.07%)；海外不达标BU → 无。</p>
+      <p>1-5月累计差错 <span class="hl-red">59</span> 人次，差错占比 <span class="hl-blue">0.06%</span>，准确率 <span class="hl-blue">99.94%</span>。</p>
+      <p><span class="hl-red">HSSC</span> 角色累计差错 <span class="hl-red">8</span> 人次，其中<span class="hl-red">国内</span>累计差错占比 <span class="hl-green">0.01%</span>（准确率 <span class="hl-green">99.99%</span>），<span class="hl-green">达标</span>，目标≤0.05%，表现良好；<span class="hl-red">海外</span>累计差错占比 <span class="hl-green">0.01%</span>（准确率 <span class="hl-green">99.99%</span>），<span class="hl-green">达标</span>，目标≤0.1%，表现良好。</p>
       <p><span class="hl-red">HRBP</span> 角色累计差错 <span class="hl-red">39</span> 人次（占全球总差错 66.1%），为最主要来源，建议聚焦核算流程优化。</p>
+      <p class="warn">5月差错 <span class="hl-red">21 人次</span>，环比4月（6人次）大幅上升 <span class="hl-red">250%</span>，为年度高峰月。</p>
       <p class="good">零差错BU：<span class="hl-green">GEU</span>、<span class="hl-green">HQU</span>，表现优异。</p>
 
     </div>
     <div style="margin-top:6px;padding-top:6px;border-top:1px dashed #cbd5e1;font-size:11px;color:#64748b;font-weight:500;">
-      备注：全球（正式+外包）薪酬核算差错率要求为国内≤0.05%、海外≤0.1%。
+      备注：全球（正式+外包）薪酬核算差错率要求为国内≤0.05%、海外≤0.1%，核算口径：100%为HSSC核算出错的差错率。
     </div>
   </div>
 
@@ -496,7 +505,7 @@
 
   <div class="dimension-kpi-row">
     <div class="dimension-card global">
-      <div class="dim-title">全球汇总</div>
+      <div class="dim-title">全球汇总<span class="hssc-badge">HSSC</span></div>
       <div class="dim-grid">
         <div class="dim-metric">
           <div class="dim-label">累计算薪人次</div>
@@ -504,20 +513,20 @@
         </div>
         <div class="dim-metric">
           <div class="dim-label">差错人次</div>
-          <div class="dim-value dim-err">59</div>
+          <div class="dim-value dim-err">8</div>
         </div>
         <div class="dim-metric">
           <div class="dim-label">差错率</div>
-          <div class="dim-value dim-warn">0.06%</div>
+          <div class="dim-value dim-warn">0.01%</div>
         </div>
         <div class="dim-metric">
           <div class="dim-label">准确率</div>
-          <div class="dim-value dim-info">99.94%</div>
+          <div class="dim-value dim-info">99.99%</div>
         </div>
       </div>
     </div>
     <div class="dimension-card domestic">
-      <div class="dim-title">国内</div>
+      <div class="dim-title">国内<span class="hssc-badge">HSSC</span></div>
       <div class="dim-grid">
         <div class="dim-metric">
           <div class="dim-label">累计算薪人次</div>
@@ -525,22 +534,22 @@
         </div>
         <div class="dim-metric">
           <div class="dim-label">差错人次</div>
-          <div class="dim-value dim-err">31</div>
+          <div class="dim-value dim-err">2</div>
         </div>
         <div class="dim-metric">
           <div class="dim-label">差错率</div>
-          <div class="dim-value dim-bad">0.11%</div>
+          <div class="dim-value dim-good">0.01%</div>
           <div class="dim-target">目标 ≤0.05%</div>
         </div>
         <div class="dim-metric">
           <div class="dim-label">准确率</div>
-          <div class="dim-value dim-bad">99.89%</div>
-          <span class="status-badge fail">未达标</span>
+          <div class="dim-value dim-good">99.99%</div>
+          <span class="status-badge pass">达标</span>
         </div>
       </div>
     </div>
     <div class="dimension-card overseas">
-      <div class="dim-title">海外</div>
+      <div class="dim-title">海外<span class="hssc-badge">HSSC</span></div>
       <div class="dim-grid">
         <div class="dim-metric">
           <div class="dim-label">累计算薪人次</div>
@@ -548,16 +557,16 @@
         </div>
         <div class="dim-metric">
           <div class="dim-label">差错人次</div>
-          <div class="dim-value dim-err">28</div>
+          <div class="dim-value dim-err">6</div>
         </div>
         <div class="dim-metric">
           <div class="dim-label">差错率</div>
-          <div class="dim-value dim-good">0.04%</div>
+          <div class="dim-value dim-good">0.01%</div>
           <div class="dim-target">目标 ≤0.1%</div>
         </div>
         <div class="dim-metric">
           <div class="dim-label">准确率</div>
-          <div class="dim-value dim-good">99.96%</div>
+          <div class="dim-value dim-good">99.99%</div>
           <span class="status-badge pass">达标</span>
         </div>
       </div>
@@ -703,7 +712,7 @@
 
 </div>
 
-<div class="footer">纵腾集团 | 薪酬核算准确率监控 | 2026年1月 - 5月</div>
+<div class="footer">薪酬核算准确率监控 | 2026年1月 - 5月</div>
 
 <script>
 // ============= DATA (1-5月) =============
@@ -1236,6 +1245,18 @@ function renderGlobalTable(tbody) {
   html += '<td class="' + (total.totalRate > targetRate ? 'rate-bad' : 'rate-good') + '">' + fmtPct(total.totalRate) + '</td>';
   html += '<td class="' + (total.accuracy < 99.95 ? 'rate-warn' : 'rate-good') + '">' + total.accuracy + '%</td></tr>';
 
+  const groupRoles = getDimRows('global').filter(d => d.bu === '集团' && ROLES.includes(d.role));
+  groupRoles.forEach(d => {
+    html += '<tr class="role-detail-row" data-bu="集团"><td></td><td class="role-cell">' + d.role + '</td>';
+    for (let m = 0; m < 5; m++) {
+      const errCls = d.errors[m] > 2 ? 'err-highlight' : '';
+      html += '<td class="' + errCls + '">' + fmtNum(d.errors[m]) + '</td><td>' + fmtNum(total.counts[m]) + '</td><td>' + fmtPct(d.rates[m]) + '</td>';
+    }
+    html += '<td>' + fmtNum(d.totalErrors) + '</td><td>' + fmtNum(total.totalCount) + '</td>';
+    html += '<td>' + fmtPct(d.totalRate) + '</td>';
+    html += '<td class="' + (d.accuracy < 99.95 ? 'rate-warn' : 'rate-good') + '">' + d.accuracy + '%</td></tr>';
+  });
+
   tbody.innerHTML = html;
 }
 
@@ -1279,6 +1300,18 @@ function renderDimensionTable(tbody, dim) {
   html += '<td class="err-highlight">' + fmtNum(total.totalErrors) + '</td><td>' + fmtNum(total.totalCount) + '</td>';
   html += '<td class="' + (total.totalRate > targetRate ? 'rate-bad' : 'rate-good') + '">' + fmtPct(total.totalRate) + '</td>';
   html += '<td class="' + (total.accuracy < 99.95 ? 'rate-warn' : 'rate-good') + '">' + total.accuracy + '%</td></tr>';
+
+  const groupRoles = rows.filter(d => d.bu === '集团' && ROLES.includes(d.role));
+  groupRoles.forEach(d => {
+    html += '<tr class="role-detail-row" data-bu="集团"><td></td><td class="role-cell">' + d.role + '</td>';
+    for (let m = 0; m < 5; m++) {
+      const errCls = d.errors[m] > 2 ? 'err-highlight' : '';
+      html += '<td class="' + errCls + '">' + fmtNum(d.errors[m]) + '</td><td>' + fmtNum(total.counts[m]) + '</td><td>' + fmtPct(d.rates[m]) + '</td>';
+    }
+    html += '<td>' + fmtNum(d.totalErrors) + '</td><td>' + fmtNum(total.totalCount) + '</td>';
+    html += '<td>' + fmtPct(d.totalRate) + '</td>';
+    html += '<td class="' + (d.accuracy < 99.95 ? 'rate-warn' : 'rate-good') + '">' + d.accuracy + '%</td></tr>';
+  });
 
   tbody.innerHTML = html;
 }
