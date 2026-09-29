@@ -236,28 +236,34 @@
   .rate-bad { color: #dc2626; }
 
   /* 人力成本报表计提&实发环节差错明细表 */
-  #costReworkTable thead th { white-space: nowrap; }
-  #costReworkTable tbody td {
-    white-space: normal;
-    text-align: left;
-    vertical-align: top;
-    line-height: 1.5;
+  /* 除「具体原因」外一律不换行：其余列 nowrap 按内容撑开，原因列独占剩余宽度 */
+  #costReworkTable {
+    table-layout: auto;
+    width: 100%;
   }
-  #costReworkTable tbody td.num {
-    text-align: right;
-    font-variant-numeric: tabular-nums;
+  #costReworkTable thead th {
     white-space: nowrap;
+    padding: 8px 8px;
   }
-  #costReworkTable tbody td.reason {
-    min-width: 280px;
-    max-width: 460px;
-    color: #475569;
+  #costReworkTable tbody td {
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 8px;
   }
   #costReworkTable tbody td.amt {
     text-align: right;
     font-weight: 600;
     color: #dc2626;
-    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  #costReworkTable tbody td.reason {
+    white-space: normal;
+    text-align: left;
+    width: 100%;
+    min-width: 260px;
+    line-height: 1.55;
+    color: #475569;
   }
   #costReworkTable tfoot td {
     background: #dbeafe;
